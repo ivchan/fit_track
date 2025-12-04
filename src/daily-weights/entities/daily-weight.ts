@@ -1,16 +1,10 @@
-import {
-  Entity,
-  Column,
-  PrimaryColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
-import { Exclude as ExcludeTransform } from 'class-transformer';
+import { BaseModel } from 'src/common/base-model';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('ft_daily_weight')
-export class DailyWeight {
+export class DailyWeight extends BaseModel {
   @PrimaryColumn({
-    name: 'key',
+    name: 'weight_key',
     type: 'uuid',
   })
   key: string;
@@ -31,6 +25,7 @@ export class DailyWeight {
   })
   weight: number;
 
+  /*
   @Column({
     name: 'is_active',
     default: true,
@@ -67,4 +62,5 @@ export class DailyWeight {
   })
   @ExcludeTransform()
   updatedBy: string;
+  */
 }

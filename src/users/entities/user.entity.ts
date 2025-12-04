@@ -1,16 +1,11 @@
-import {
-  Entity,
-  Column,
-  PrimaryColumn,
-  UpdateDateColumn,
-  CreateDateColumn,
-} from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 import { Exclude as ExcludeTransform } from 'class-transformer';
+import { BaseModel } from 'src/common/base-model';
 
 @Entity('ft_user')
-export class User {
+export class User extends BaseModel {
   @PrimaryColumn({
-    name: 'key',
+    name: 'user_key',
     type: 'uuid',
   })
   key: string;
@@ -43,41 +38,4 @@ export class User {
     length: 200,
   })
   passwordHash: string;
-
-  @Column({
-    name: 'is_active',
-    default: true,
-  })
-  isActive: boolean;
-
-  @CreateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
-  @ExcludeTransform()
-  createdAt: Date;
-
-  @Column({
-    name: 'created_by',
-    type: 'varchar',
-    length: 10,
-  })
-  @ExcludeTransform()
-  createdBy: string;
-
-  @UpdateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-    onUpdate: 'CURRENT_TIMESTAMP',
-  })
-  @ExcludeTransform()
-  updatedAt: Date;
-
-  @Column({
-    name: 'updated_by',
-    type: 'varchar',
-    length: 10,
-  })
-  @ExcludeTransform()
-  updatedBy: string;
 }

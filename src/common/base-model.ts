@@ -1,36 +1,17 @@
-import { BaseModel } from 'src/common/base-model';
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
+import { Exclude as ExcludeTransform } from 'class-transformer';
 
-@Entity('ft_exercise')
-export class Exercise extends BaseModel {
-  @PrimaryColumn({
-    name: 'exercise_key',
-    type: 'uuid',
-  })
-  key: string;
-
-  @Column({
-    name: 'exercise_name',
-    type: 'varchar',
-    length: 100,
-  })
-  exerciseName: string;
-
-  @Column({
-    name: 'duration',
-    type: 'integer',
-  })
-  duration: number;
-
-  /*
+export class BaseModel {
   @Column({
     name: 'is_active',
     default: true,
   })
   isActive: boolean;
 
-  @CreateDateColumn({
+  @Column({
+    name: 'created_at',
     type: 'timestamp',
+    nullable: true,
     default: () => 'CURRENT_TIMESTAMP',
   })
   @ExcludeTransform()
@@ -40,13 +21,15 @@ export class Exercise extends BaseModel {
     name: 'created_by',
     type: 'varchar',
     length: 10,
+    nullable: true,
   })
   @ExcludeTransform()
   createdBy: string;
 
-  @UpdateDateColumn({
+  @Column({
+    name: 'updated_at',
     type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
+    nullable: true,
     onUpdate: 'CURRENT_TIMESTAMP',
   })
   @ExcludeTransform()
@@ -56,8 +39,8 @@ export class Exercise extends BaseModel {
     name: 'updated_by',
     type: 'varchar',
     length: 10,
+    nullable: true,
   })
   @ExcludeTransform()
   updatedBy: string;
-  */
 }
