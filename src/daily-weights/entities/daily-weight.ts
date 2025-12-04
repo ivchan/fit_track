@@ -2,13 +2,13 @@ import {
   Entity,
   Column,
   PrimaryColumn,
-  UpdateDateColumn,
   CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Exclude as ExcludeTransform } from 'class-transformer';
 
-@Entity('ft_user')
-export class User {
+@Entity('ft_daily_weight')
+export class DailyWeight {
   @PrimaryColumn({
     name: 'key',
     type: 'uuid',
@@ -16,33 +16,20 @@ export class User {
   key: string;
 
   @Column({
-    name: 'user_code',
-    type: 'varchar',
-    length: 10,
+    name: 'user_key',
+    type: 'uuid',
   })
-  userCode: string;
+  userKey: string;
 
   @Column({
-    name: 'user_name',
-    type: 'varchar',
-    length: 100,
+    name: 'weighted_date',
   })
-  userName: string;
+  weightedDate: Date;
 
   @Column({
-    name: 'email_address',
-    type: 'varchar',
-    length: 200,
+    name: 'weight',
   })
-  emailAddress: string;
-
-  @ExcludeTransform()
-  @Column({
-    name: 'pwd_hashed',
-    type: 'varchar',
-    length: 200,
-  })
-  passwordHash: string;
+  weight: number;
 
   @Column({
     name: 'is_active',
