@@ -1,9 +1,14 @@
-import { Entity, Column, PrimaryColumn, UpdateDateColumn } from 'typeorm';
-import { CreateDateColumn } from 'typeorm/browser';
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Exclude as ExcludeTransform } from 'class-transformer';
 
-@Entity('ft_user')
-export class User {
+@Entity('ft_exercise')
+export class Exercise {
   @PrimaryColumn({
     name: 'key',
     type: 'uuid',
@@ -11,25 +16,17 @@ export class User {
   key: string;
 
   @Column({
-    name: 'user_code',
-    type: 'varchar',
-    length: 10,
-  })
-  userCode: string;
-
-  @Column({
-    name: 'user_name',
+    name: 'exercise_name',
     type: 'varchar',
     length: 100,
   })
-  userName: string;
+  exerciseName: string;
 
   @Column({
-    name: 'email_address',
-    type: 'varchar',
-    length: 200,
+    name: 'duration',
+    type: 'integer',
   })
-  emailAddress: string;
+  duration: number;
 
   @Column({
     name: 'is_active',

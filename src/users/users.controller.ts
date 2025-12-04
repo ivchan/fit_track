@@ -10,8 +10,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { UserRequest } from './Request/user-request.json';
-import { UserResponse } from './Response/user-response.json';
+import { User } from './entities/user.entity';
 
 @Controller('users')
 export class UsersController {
@@ -19,25 +18,25 @@ export class UsersController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() createUserJson: UserRequest): Promise<UserResponse> {
+  create(@Body() createUserJson: User): Promise<User> {
     return this.usersService.create(createUserJson);
   }
 
   @Get()
-  findAll(): Promise<UserResponse[]> {
+  findAll(): Promise<User[]> {
     return this.usersService.findAllActive();
   }
 
   @Get(':key')
-  findOne(@Param('key') key: string): Promise<UserResponse | undefined> {
+  findOne(@Param('key') key: string): Promise<User | undefined> {
     return this.usersService.findOne(key);
   }
 
   @Put(':key')
   update(
     @Param('key') key: string,
-    @Body() updateUserJson: UserRequest,
-  ): Promise<UserResponse | undefined> {
+    @Body() updateUserJson: User,
+  ): Promise<User | undefined> {
     return this.usersService.update(key, updateUserJson);
   }
 

@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
+import { Exercise } from './exercise/entities/exercise.entity';
+import { ExercisesModule } from './exercise/exercises.module';
 
 @Module({
   imports: [
@@ -14,11 +16,12 @@ import { UsersModule } from './users/users.module';
       username: 'root',
       password: 'rm35023504@tf',
       database: 'ivan_ft_db',
-      entities: [User],
+      entities: [User, Exercise],
       synchronize: true,
       logging: true,
     }),
     UsersModule,
+    ExercisesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
