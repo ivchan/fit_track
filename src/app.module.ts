@@ -13,7 +13,7 @@ import { UsersModule } from './users/users.module';
       port: 3306,
       username: 'root',
       password: 'rm35023504@tf',
-      database: 'ivan_test_db',
+      database: 'ivan_ft_db',
       entities: [User],
       synchronize: true,
       logging: true,

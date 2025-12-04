@@ -1,5 +1,4 @@
-import { Exclude, Expose, plainToClass } from "class-transformer";
-import { User } from "../entities/user.entity";
+import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
 export class UserResponse {
@@ -14,7 +13,4 @@ export class UserResponse {
 
   //hide
   isActive: boolean;
-
-  //hide
-  organization: string;
 }
