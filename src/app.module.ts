@@ -7,6 +7,9 @@ import { UsersModule } from './users/users.module';
 import { Exercise } from './exercises/entities/exercise.entity';
 import { ExercisesModule } from './exercises/exercises.module';
 import { DailyWeight } from './daily-weights/entities/daily-weight';
+import { DailyRecord } from './daily-records/entities/daily-record';
+import { DailyWeightModule } from './daily-weights/daily-weight.module';
+import { DailyRecordService } from './daily-records/daily-record.service';
 
 @Module({
   imports: [
@@ -17,12 +20,14 @@ import { DailyWeight } from './daily-weights/entities/daily-weight';
       username: 'root',
       password: 'rm35023504@tf',
       database: 'ivan_ft_db',
-      entities: [User, Exercise, DailyWeight],
+      entities: [User, Exercise, DailyWeight, DailyRecord],
       synchronize: true,
       logging: true,
     }),
     UsersModule,
     ExercisesModule,
+    DailyWeightModule,
+    DailyRecordService,
   ],
   controllers: [AppController],
   providers: [AppService],

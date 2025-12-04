@@ -21,43 +21,4 @@ export class Exercise extends BaseModel {
     type: 'integer',
   })
   duration: number;
-
-  /*
-  @Column({
-    name: 'is_active',
-    default: true,
-  })
-  isActive: boolean;
-
-  @CreateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
-  @ExcludeTransform()
-  createdAt: Date;
-
-  @Column({
-    name: 'created_by',
-    type: 'varchar',
-    length: 10,
-  })
-  @ExcludeTransform()
-  createdBy: string;
-
-  @UpdateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP',
-    onUpdate: 'CURRENT_TIMESTAMP',
-  })
-  @ExcludeTransform()
-  updatedAt: Date;
-
-  @Column({
-    name: 'updated_by',
-    type: 'varchar',
-    length: 10,
-  })
-  @ExcludeTransform()
-  updatedBy: string;
-  */
 }

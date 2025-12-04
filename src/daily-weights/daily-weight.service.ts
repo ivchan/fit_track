@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { plainToClass } from 'class-transformer';
 import { DailyWeight } from './entities/daily-weight';
-import { Exercise } from 'src/exercises/entities/exercise.entity';
 
 @Injectable()
 export class DailyWeightService {
