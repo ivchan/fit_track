@@ -1,6 +1,5 @@
 import { Body, Controller, Post, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { userInfo } from 'os';
 
 interface LoginDto {
   userName: string;
