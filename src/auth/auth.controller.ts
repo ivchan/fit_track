@@ -1,14 +1,15 @@
-import { Body, Controller, Post, UnauthorizedException } from '@nestjs/common';
+import {
+  Body,
+  Query,
+  Controller,
+  Post,
+  UnauthorizedException,
+  Get,
+  Param,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
-
-interface LoginDto {
-  userName: string;
-  password: string;
-}
-
-interface RefreshDto {
-  refreshToken: string;
-}
+import { LoginDto } from './dto/LoginDto';
+import { RefreshDto } from './dto/RefreshDto';
 
 @Controller('auth')
 export class AuthController {
@@ -17,7 +18,7 @@ export class AuthController {
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
     const user = await this.authService.validateUser(
-      loginDto.userName,
+      loginDto.userCode,
       loginDto.password,
     );
     if (!user) {
@@ -54,5 +55,11 @@ export class AuthController {
     } catch (error) {
       throw new UnauthorizedException(error);
     }
+  }
+
+  @Get('genhash/:pwd')
+  genHash(@Param() params: { pwd: string }) {
+    const hashValue = this.authService.hashPassword(params.pwd);
+    return hashValue;
   }
 }
