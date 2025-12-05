@@ -15,7 +15,7 @@ export class User extends BaseModel {
     type: 'varchar',
     length: 10,
   })
-  userCode: string;
+  loginId: string;
 
   @Column({
     name: 'user_name',

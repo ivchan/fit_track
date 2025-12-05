@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
-import { UsersModule } from './user/user.module';
+import { UserModule } from './user/user.module';
 import { Exercise } from './exercise/entities/exercise.entity';
 import { ExerciseModule } from './exercise/exercise.module';
 import { DailyWeight } from './daily-weight/entities/daily-weight';
@@ -30,7 +30,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     AuthModule,
-    UsersModule,
+    UserModule,
     ExerciseModule,
     DailyWeightModule,
     DailyRecordModule,
