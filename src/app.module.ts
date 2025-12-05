@@ -9,7 +9,9 @@ import { ExercisesModule } from './exercises/exercises.module';
 import { DailyWeight } from './daily-weights/entities/daily-weight';
 import { DailyRecord } from './daily-records/entities/daily-record';
 import { DailyWeightModule } from './daily-weights/daily-weight.module';
-import { DailyRecordService } from './daily-records/daily-record.service';
+import { AuthModule } from './auth/auth.module';
+import { DailyRecordModule } from './daily-records/daily-record.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -24,10 +26,14 @@ import { DailyRecordService } from './daily-records/daily-record.service';
       synchronize: true,
       logging: true,
     }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    AuthModule,
     UsersModule,
     ExercisesModule,
     DailyWeightModule,
-    DailyRecordService,
+    DailyRecordModule,
   ],
   controllers: [AppController],
   providers: [AppService],

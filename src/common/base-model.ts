@@ -1,4 +1,4 @@
-import { Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
+import { Column } from 'typeorm';
 import { Exclude as ExcludeTransform } from 'class-transformer';
 
 export class BaseModel {
