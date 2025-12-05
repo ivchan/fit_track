@@ -5,7 +5,7 @@ import { User } from './entities/user.entity';
 import { plainToClass } from 'class-transformer';
 
 @Injectable()
-export class UsersService {
+export class UserService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,

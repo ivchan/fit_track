@@ -2,15 +2,15 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './users/entities/user.entity';
-import { UsersModule } from './users/users.module';
-import { Exercise } from './exercises/entities/exercise.entity';
-import { ExercisesModule } from './exercises/exercises.module';
-import { DailyWeight } from './daily-weights/entities/daily-weight';
-import { DailyRecord } from './daily-records/entities/daily-record';
-import { DailyWeightModule } from './daily-weights/daily-weight.module';
+import { User } from './user/entities/user.entity';
+import { UsersModule } from './user/user.module';
+import { Exercise } from './exercise/entities/exercise.entity';
+import { ExerciseModule } from './exercise/exercise.module';
+import { DailyWeight } from './daily-weight/entities/daily-weight';
+import { DailyRecord } from './daily-record/entities/daily-record';
+import { DailyWeightModule } from './daily-weight/daily-weight.module';
 import { AuthModule } from './auth/auth.module';
-import { DailyRecordModule } from './daily-records/daily-record.module';
+import { DailyRecordModule } from './daily-record/daily-record.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -31,7 +31,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     AuthModule,
     UsersModule,
-    ExercisesModule,
+    ExerciseModule,
     DailyWeightModule,
     DailyRecordModule,
   ],

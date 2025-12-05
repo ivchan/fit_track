@@ -9,12 +9,12 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { ExercisesService } from './exercises.service';
+import { ExerciseService } from './exercise.service';
 import { Exercise } from './entities/exercise.entity';
 
-@Controller('exercises')
-export class ExercisesController {
-  constructor(private readonly exercisesService: ExercisesService) {}
+@Controller('exercise')
+export class ExerciseController {
+  constructor(private readonly exercisesService: ExerciseService) {}
 
   @Post()
   @HttpCode(HttpStatus.CREATED)

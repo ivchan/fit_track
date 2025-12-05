@@ -12,7 +12,7 @@ import {
 import { DailyRecordService } from './daily-record.service';
 import { DailyRecord } from './entities/daily-record';
 
-@Controller('dailyrecordss')
+@Controller('dailyrecord')
 export class DailyRecordController {
   constructor(private readonly dailyRecordService: DailyRecordService) {}
 

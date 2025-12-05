@@ -12,7 +12,7 @@ import {
 import { DailyWeightService } from './daily-weight.service';
 import { DailyWeight } from './entities/daily-weight';
 
-@Controller('dailyweights')
+@Controller('dailyweight')
 export class DailyWeightController {
   constructor(private readonly dailyWeightService: DailyWeightService) {}
 

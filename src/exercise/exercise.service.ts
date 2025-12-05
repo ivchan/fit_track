@@ -5,7 +5,7 @@ import { Exercise } from './entities/exercise.entity';
 import { plainToClass } from 'class-transformer';
 
 @Injectable()
-export class ExercisesService {
+export class ExerciseService {
   constructor(
     @InjectRepository(Exercise)
     private exerciseRepository: Repository<Exercise>,
