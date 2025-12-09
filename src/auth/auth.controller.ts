@@ -1,11 +1,12 @@
 import {
   Body,
-  Query,
   Controller,
   Post,
   UnauthorizedException,
   Get,
   Param,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/LoginDto';
@@ -16,6 +17,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   async login(@Body() loginDto: LoginDto) {
     const user = await this.authService.validateUser(
       loginDto.userCode,
@@ -35,6 +37,7 @@ export class AuthController {
   }
 
   @Post('refresh')
+  @HttpCode(HttpStatus.OK)
   refresh(@Body() refreshDto: RefreshDto) {
     try {
       const payload = this.authService.verifyToken(refreshDto.refreshToken);
@@ -58,6 +61,7 @@ export class AuthController {
   }
 
   @Get('genhash/:pwd')
+  @HttpCode(HttpStatus.OK)
   genHash(@Param() params: { pwd: string }) {
     const hashValue = this.authService.hashPassword(params.pwd);
     return hashValue;

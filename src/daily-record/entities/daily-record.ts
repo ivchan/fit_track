@@ -5,13 +5,17 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 export class DailyRecord extends BaseModel {
   @PrimaryColumn({
     name: 'record_key',
-    type: 'uuid',
+    //type: 'uuid',
+    type: 'varchar',
+    length: 36,
   })
   key: string;
 
   @Column({
     name: 'user_key',
-    type: 'uuid',
+    //type: 'uuid',
+    type: 'varchar',
+    length: 36,
   })
   userKey: string;
 

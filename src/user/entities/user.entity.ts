@@ -6,7 +6,9 @@ import { BaseModel } from 'src/common/base-model';
 export class User extends BaseModel {
   @PrimaryColumn({
     name: 'user_key',
-    type: 'uuid',
+    //type: 'uuid',
+    type: 'varchar',
+    length: 36,
   })
   key: string;
 
