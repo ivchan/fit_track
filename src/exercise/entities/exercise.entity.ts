@@ -5,7 +5,9 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 export class Exercise extends BaseModel {
   @PrimaryColumn({
     name: 'exercise_key',
-    type: 'uuid',
+    //type: 'uuid',
+    type: 'varchar',
+    length: 36,
   })
   key: string;
 

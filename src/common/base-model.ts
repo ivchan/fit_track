@@ -1,4 +1,4 @@
-import { Column } from 'typeorm';
+import { Column, CreateDateColumn } from 'typeorm';
 import { Exclude as ExcludeTransform } from 'class-transformer';
 
 export class BaseModel {
@@ -10,10 +10,11 @@ export class BaseModel {
 
   @Column({
     name: 'created_at',
-    type: 'timestamp',
+    //type: 'timestamp',
     nullable: true,
-    default: () => 'CURRENT_TIMESTAMP',
+    //default: () => 'CURRENT_TIMESTAMP',
   })
+  @CreateDateColumn()
   @ExcludeTransform()
   createdAt: Date;
 
@@ -28,10 +29,11 @@ export class BaseModel {
 
   @Column({
     name: 'updated_at',
-    type: 'timestamp',
+    //type: 'timestamp',
     nullable: true,
-    onUpdate: 'CURRENT_TIMESTAMP',
+    //onUpdate: 'CURRENT_TIMESTAMP',
   })
+  @CreateDateColumn()
   @ExcludeTransform()
   updatedAt: Date;
 

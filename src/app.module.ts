@@ -12,16 +12,19 @@ import { DailyWeightModule } from './daily-weight/daily-weight.module';
 import { AuthModule } from './auth/auth.module';
 import { DailyRecordModule } from './daily-record/daily-record.module';
 import { ConfigModule } from '@nestjs/config';
+import { TestModule } from './test/test.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mariadb',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'rm35023504@tf',
-      database: 'ivan_ft_db',
+      type: 'sqlite',
+      database: 'ft_db.sqlite',
+      //type: 'mariadb',
+      //host: 'localhost',
+      //port: 3306,
+      //username: 'root',
+      //password: 'rm35023504@tf',
+      //database: 'ivan_ft_db',
       entities: [User, Exercise, DailyWeight, DailyRecord],
       synchronize: true,
       logging: true,
@@ -34,6 +37,7 @@ import { ConfigModule } from '@nestjs/config';
     ExerciseModule,
     DailyWeightModule,
     DailyRecordModule,
+    TestModule,
   ],
   controllers: [AppController],
   providers: [AppService],
